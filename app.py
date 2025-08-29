@@ -178,14 +178,14 @@ if option == "Live Price & Prediction":
     #For Tommorow pred
     
     pred = future_pred()
-    st.write(f"###### Predicted tommorow BTC price: :green[${pred:,.2f}🚀]")
+    st.write(f"##### Predicted tommorow BTC price: :green[${pred:,.2f}🚀]")
 if option == "About": 
-    st.header("🤔 About Bitcoin")
+    st.header("About Bitcoin 🤔")
     st.image('https://bitcoinmagazine.com/wp-content/uploads/2024/11/what-is-bitcoin.jpg', width = 400)
     st.write("""Bitcoin is an innovative payment network and a new kind of money. Bitcoin uses peer-to-peer technology 
      to operate with no central authority or banks; managing transactions and the issuing of bitcoins is carried 
      out collectively by the network.""")
-    st.header("☺️ About This Dashboard")
+    st.header("About This Dashboard ☺️")
     st.write("""
     This dashboard shows **real-time BTC/USDT price** using Binance API.  
     Features:  
