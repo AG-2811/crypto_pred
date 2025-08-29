@@ -58,7 +58,7 @@ st.caption("⚠️ Richer Risk")
 SYMBOL_DEFAULT = "BTCUSDT"
 with st.sidebar:
     st.sidebar.title("📊 Crypto Dashboard")
-     st.sidebar.image('https://i.makeagif.com/media/6-09-2020/3ccDb4.gif')
+    st.sidebar.image('https://i.makeagif.com/media/6-09-2020/3ccDb4.gif')
     option = st.sidebar.radio("Select view:", ["Live Price & Prediction", "About"])
     st.header("Settings for Prediction")
     symbol = st.text_input("Symbol", value=SYMBOL_DEFAULT, help="Use Binance symbols like BTCUSDT, ETHUSDT")
