@@ -19,8 +19,8 @@ import random
 with open('crypto_pred.pkl','rb') as f:
      HAS_XGB = pickle.load(f)
 
-api_key = "zZAJfb9fnVSD56Z6WWavnm1tcsYucAmcFYRk4LSX3Z0Cai2Wlqt31C9Kyv3JTG0y"
-api_secret = "Z86f6sjcJpUxCwgKijcjkL1Tm9uZXh8myubOER1eqFtdqVCdLZbxt1gIs0T1onKc"
+api_key = "vBKombEymiA64O7LjsqEIACYJTsCrLojshIVjoMy9ibh63ePcTcaz6Ga5i229JzV"
+api_secret = "r7LZZ37YlshUXdQoUkUoaMmsfIKAo1NT9esV7a2yWxcAZz5lp8it8txWvVVTBGdM"
 client = Client(api_key, api_secret)
 
 # Get 100 days of daily BTCUSDT data
