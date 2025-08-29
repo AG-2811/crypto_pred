@@ -178,7 +178,7 @@ if option == "Live Price & Prediction":
     #For Tommorow pred
     
     pred = future_pred()
-    st.write(f"##### Predicted tommorow BTC price: :green[${pred:,.2f}🚀]")
+    st.write(f"##### Predicted Tommorow BTC price: :green[${pred:,.2f}🚀]")
 if option == "About": 
     st.header("About Bitcoin 🤔")
     st.image('https://bitcoinmagazine.com/wp-content/uploads/2024/11/what-is-bitcoin.jpg', width = 400)
