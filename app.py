@@ -181,6 +181,7 @@ if option == "Live Price & Prediction":
     st.write(f"###### Predicted tommorow BTC price: :green[${pred:,.2f}🚀]")
 if option == "About": 
     st.header("ℹ️ About This Dashboard")
+    st.write('https://bitcoinmagazine.com/wp-content/uploads/2024/11/what-is-bitcoin.jpg')
     st.write("""
     This dashboard shows **real-time BTC/USDT price** using Binance API.  
     Features:  
