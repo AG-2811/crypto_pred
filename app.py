@@ -51,7 +51,7 @@ df["rolling_mean_3"] = df["close_scaled"].rolling(3).mean()
 
 # Drop NaN rows caused by shifting/rolling
 df = df.dropna().reset_index(drop=True)
-
+st.set_page_config(layout="wide")
 st.title("📈 Bitcoin Price Prediction")
 # st.markdown("---")
 st.caption("⚠️ Richer Risk")
