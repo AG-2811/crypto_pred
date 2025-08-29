@@ -4,3 +4,4 @@ streamlit
 scikit-learn
 plotly
 streamlit-autorefresh
+python-binance
