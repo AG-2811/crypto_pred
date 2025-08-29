@@ -69,7 +69,7 @@ with st.sidebar:
 if option == "Live Price & Prediction":   
     st_autorefresh_count = st.experimental_rerun if False else None  # placeholder to avoid lints
     st.markdown("---")
-    
+    st.image('https://www.investopedia.com/thmb/sjImRqoalcoT7t36zp4PA-dUkzA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2225439701-10d153c477f1428883b99dcb7a00638e.jpg')
     col1, col2, col3 = st.columns([3,3,1])
     with col1:
         st.subheader("Real-Time Spot Price")
