@@ -89,7 +89,7 @@ if option == "Live Price & Prediction":
             # print(f"BTC Price: {price['price']} USD")
             st.metric(label=f"{symbol} spot", value=f"{price:,.2f}")
             st.caption("Updates when you press 'R' to rerun, or on page interaction. Use the slider to control frequency and re-run.")
-            st.write(f"Last updated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
+            st.write(f"Last updated: {(datetime.utcnow()+ timedelta(hours=5, minutes=30)).strftime('%Y-%m-%d %H:%M:%S')} IST")
         except Exception as e:
             st.error(f"Failed to fetch spot price: {e}")
     
