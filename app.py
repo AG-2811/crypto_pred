@@ -70,7 +70,7 @@ with st.sidebar:
 if option == "Live Price & Prediction":   
     st_autorefresh_count = st.experimental_rerun if False else None  # placeholder to avoid lints
     st.markdown("---")
-    st.image('https://cdnb.artstation.com/p/assets/images/images/009/358/213/original/tony-twaine-comp-2-2.gif?1518528958',width= 1000)
+    st.image('https://cdnb.artstation.com/p/assets/images/images/009/358/213/original/tony-twaine-comp-2-2.gif?1518528958',width= 900)
     col1, col2, col3 = st.columns([3,3,1])
     with col1:
         st.subheader("Real-Time Spot Price")
@@ -124,7 +124,7 @@ if option == "Live Price & Prediction":
     
     st.markdown("---")
     st.subheader("Train & Evaluate")
-    col = ["lag1", "lag2", "lag3", "return", "rolling_mean_3"]
+    
     
     features = df[["lag1", "lag2", "lag3", "return", "rolling_mean_3"]]
     y_pred_scaled = HAS_XGB.predict(features)
