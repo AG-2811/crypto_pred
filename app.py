@@ -1,10 +1,7 @@
 import time
-import math
-import requests
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-import plotly.express as px
 from datetime import datetime, timedelta, timezone
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
@@ -14,7 +11,7 @@ from streamlit_autorefresh import st_autorefresh
 from binance.client import Client
 import os
 import pickle
-import random
+
 
 with open('crypto_pred.pkl','rb') as f:
      HAS_XGB = pickle.load(f)
@@ -49,11 +46,11 @@ df["lag3"] = df["close_scaled"].shift(3)
 df["return"] = df["close"].pct_change()
 df["rolling_mean_3"] = df["close_scaled"].rolling(3).mean()
 
-# Drop NaN rows caused by shifting/rolling
+
 df = df.dropna().reset_index(drop=True)
 st.set_page_config(layout="wide")
 st.title("📈 Bitcoin Price Prediction")
-# st.markdown("---")
+
 st.caption("⚠️ Richer Risk")
 SYMBOL_DEFAULT = "BTCUSDT"
 with st.sidebar:
@@ -80,15 +77,15 @@ if option == "Live Price & Prediction":
             from binance.client import Client
             import os
             
-            # Create a client (you can create an API key in Binance account)
+            
             api_key = "zZAJfb9fnVSD56Z6WWavnm1tcsYucAmcFYRk4LSX3Z0Cai2Wlqt31C9Kyv3JTG0y"
             api_secret = "Z86f6sjcJpUxCwgKijcjkL1Tm9uZXh8myubOER1eqFtdqVCdLZbxt1gIs0T1onKc"
             client = Client(api_key, api_secret,testnet=True)
             
-            # Get latest BTC/USDT price
+            
             price = client.get_symbol_ticker(symbol="BTCUSDT")
             price = float(price['price'])
-            # print(f"BTC Price: {price['price']} USD")
+          
             st.metric(label=f"{symbol} spot", value=f"{price:,.2f}")
             st.caption("Updates when you press 'R' to rerun, or on page interaction. Use the slider to control frequency and re-run.")
             st.write(f"Last updated: {(datetime.utcnow()+ timedelta(hours=5, minutes=30)).strftime('%Y-%m-%d %H:%M:%S')} IST")
@@ -101,7 +98,7 @@ if option == "Live Price & Prediction":
         if train_btn:
             st.cache_data.clear()
         st.spinner("Fetching historical data...")
-            # hist = fetch_history(symbol, interval, lookback_days)
+     
         if df is None or df.empty:
             st.warning("No data returned.")
         else:
@@ -132,7 +129,6 @@ if option == "Live Price & Prediction":
     y_pred_scaled = HAS_XGB.predict(features)
     
     y_pred = scaler.inverse_transform(y_pred_scaled.reshape(-1, 1)).ravel()
-    # st.write(f'Prediction:{y_pred}')
     mae = ((mean_absolute_error(df['close'], y_pred))/price)*100
     rmse = ((math.sqrt(mean_squared_error(df['close'], y_pred)))/price)*100
     met1, met2 = st.columns(2)
@@ -152,11 +148,7 @@ if option == "Live Price & Prediction":
         st.warning("Not enough data after feature creation. Increase lookback.")
     fig2.update_layout(height=420, margin=dict(l=30, r=30, t=30, b=10))
     st.plotly_chart(fig2, use_container_width=True)
-    
-    # met3, met4 = st.columns(2)
-    # met3.metric("BTC Actual Price",f"${df['close'].tail(1):}")
-    # met3.metric("BTC Predicted Price", f"${y_pred[-1]:,.2f}")
-    
+        
     st.markdown("### Forecast Next Steps")
     def future_pred():
         last_row = df.iloc[-1]
@@ -170,14 +162,10 @@ if option == "Live Price & Prediction":
             last_row["rolling_mean_3"]
         ]])
         
-        # --- Step 2: predict (still in scaled form)
         y_next_scaled = HAS_XGB.predict(X_next)
         
-        # --- Step 3: inverse transform back to real BTC price
         y_next = scaler.inverse_transform(y_next_scaled.reshape(-1, 1)).ravel()[0]
         return y_next
-    
-    #For Tommorow pred
     
     pred = future_pred()
     st.write(f"##### Predicted Tommorow BTC price: :green[${pred:,.2f}🚀]")
