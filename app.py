@@ -60,7 +60,7 @@ with st.sidebar:
     option = st.sidebar.radio("Select view:", ["Live Price & Prediction", "About"])
     st.header("Settings for Prediction")
     symbol = st.text_input("Symbol", value=SYMBOL_DEFAULT, help="Use Binance symbols like BTCUSDT, ETHUSDT")
-    interval = st.selectbox("Interval", ["1 week", "1 month", "3 months"], index=0)
+    interval = st.selectbox("Interval", ["1 week", "1 month", "3 months"], index=2)
     lookback_days = st.slider("Lookback (days)", 1, 100, 20)
     auto_refresh_sec = st.slider("Auto-refresh seconds (spot price)", 5, 120, 1)
     train_btn = st.button("Train / Refresh Model", type="primary")
