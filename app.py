@@ -70,7 +70,7 @@ with st.sidebar:
 if option == "Live Price & Prediction":   
     st_autorefresh_count = st.experimental_rerun if False else None  # placeholder to avoid lints
     st.markdown("---")
-    col1, col2, col3 = st.columns([1,2,1])
+    col1, col2, col3 = st.columns([1,6,1])
     with col2:
         st.image('https://cdnb.artstation.com/p/assets/images/images/009/358/213/original/tony-twaine-comp-2-2.gif?1518528958',width= 1000)
     col1, col2, col3 = st.columns([3,3,1])
