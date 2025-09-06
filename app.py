@@ -17,8 +17,8 @@ import pickle
 with open('crypto_pred.pkl','rb') as f:
      HAS_XGB = pickle.load(f)
 
-api_key = st.secrets["BINANCE_API_KEY"]
-api_secret = st.secrets["BINANCE_API_SECRET"]
+api_key = "vBKombEymiA64O7LjsqEIACYJTsCrLojshIVjoMy9ibh63ePcTcaz6Ga5i229JzV"
+api_secret = "r7LZZ37YlshUXdQoUkUoaMmsfIKAo1NT9esV7a2yWxcAZz5lp8it8txWvVVTBGdM"
 client = Client(api_key, api_secret)
 
 # Get 100 days of daily BTCUSDT data
