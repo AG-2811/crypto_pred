@@ -19,7 +19,7 @@ with open('crypto_pred.pkl','rb') as f:
 
 api_key = "vBKombEymiA64O7LjsqEIACYJTsCrLojshIVjoMy9ibh63ePcTcaz6Ga5i229JzV"
 api_secret = "r7LZZ37YlshUXdQoUkUoaMmsfIKAo1NT9esV7a2yWxcAZz5lp8it8txWvVVTBGdM"
-client = Client(api_key, api_secret)
+client = Client(api_key, api_secret, testnet=True)
 
 # Get 100 days of daily BTCUSDT data
 candles = client.get_klines(symbol="BTCUSDT", interval=Client.KLINE_INTERVAL_1DAY, limit=103)
